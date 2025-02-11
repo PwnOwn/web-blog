@@ -1,13 +1,7 @@
-'use client'
-import { useState } from "react";
+
 
 export default function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [recentSearches, setRecentSearches] = useState<string[]>([
-    "Search term 1",
-    "Search term 2",
-    "Search term 3",
-  ]);
+  
 
   return (
     <div
