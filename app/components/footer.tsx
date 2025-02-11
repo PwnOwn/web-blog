@@ -105,7 +105,7 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              © {new Date().getFullYear()} My Blog. All rights reserved.
+              © {new Date().getFullYear()-1} - {new Date().getFullYear()} My Blog. All rights reserved.
             </p>
           </div>
         </div>

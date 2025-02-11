@@ -53,6 +53,9 @@ export default function SearchPage() {
           className="h-[60px] w-full max-w-[calc(100%-16px)] p-3 pl-6 pr-12 rounded-full bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#21182B] mt-3 ml-2 dark:focus:ring-[#e6e1e3] dark:bg-[#141314] dark:placeholder-[#CBC4CC] placeholder:text-[20px] placeholder:font-semibold dark:caret-[#CBC4CC]"
         />
 
+<div  role="list" className="flex flex-col items-start w-[96%] mt-[48px] gap-[12px]">
+  <div className="ml-8 text-[26px]">Recent searches</div>
+</div>
 
 
         <ul className="space-y-2 mt-20 ml-5">
