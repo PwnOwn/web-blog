@@ -26,7 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <div className="flex min-h-screen flex-col bg-[#fdf7f9] dark:bg-[#211F21]">
+        <div className="flex min-h-screen flex-col bg-[#fdf7f9] dark:bg-[#141314]">
           <Sidebar />
           <main className="flex-1 ml-[86px]">{children}</main>
           <div className='ml-[86px]'>
