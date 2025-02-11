@@ -17,7 +17,7 @@ export default function Home() {
               <p>Design and build beautiful, usable products with Material 3.</p>
             </div>
             <button
-      
+              
               className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-colors duration-200"
             >
               Get started
