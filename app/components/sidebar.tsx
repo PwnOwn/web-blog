@@ -7,7 +7,7 @@ export default function Sidebar() {
     const [activeItem, setActiveItem] = useState("Home")
     const [isSearchClicked, setIsSearchClicked] = useState(false) // State to track if search is clicked
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const [clickedIcon, setClickedIcon] = useState<string | null>(null); // State to track clicked icon
+
 
     const menuItems = [
         { name: "Home", icon: "home", route: "/" },
