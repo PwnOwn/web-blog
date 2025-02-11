@@ -1,18 +1,12 @@
-'use client';
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react"
-import { useRouter } from 'next/navigation';
+
+
 
 export default function Home() {
-  const router = useRouter();
 
-  const handleClick = () => {
-    console.log('Button clicked');
-    router.push('/get-started');
   
-  };
 
   return (
     <main className="flex-1">
@@ -27,7 +21,7 @@ export default function Home() {
               <p>Design and build beautiful, usable products with Material 3.</p>
             </div>
             <button
-              onClick={handleClick}
+      
               className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-colors duration-200"
             >
               Get started
