@@ -59,7 +59,8 @@ export default function Sidebar() {
                 onClick={() => setIsSearchClicked(true)} // Set isSearchClicked to true when search is clicked
                 className="mb-2 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#F1D3F9] dark:bg-[#553f5d]"
             >
-                <span className="material-symbols-outlined">search</span>
+                <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"
+                            }`}>search</span>
             </Link>
 
             {/* Navigation Items */}

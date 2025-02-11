@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className=" dark:bg-[#211F21] py-12 px-4 sm:px-8 mt-[120px] border-t border-gray-200 dark:border-[#141314]">
+    <footer className=" dark:bg-[#141314] py-12 px-4 sm:px-8 mt-[120px] border-t border-gray-200 dark:border-[#141314]">
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between gap-12 mb-16">
