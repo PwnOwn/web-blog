@@ -3,7 +3,7 @@
 'use client';
 import Link from "next/link"
 import { useState, useEffect } from 'react';
-import { MdNorthEast } from 'react-icons/md';
+import { MdArrowOutward } from 'react-icons/md';
 interface Post {
   id: number;
   title: string;
@@ -13,7 +13,7 @@ interface Post {
 export default function SearchPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -22,7 +22,7 @@ export default function SearchPage() {
     }
 
     const fetchResults = async () => {
-      setLoading(true);
+
       try {
         const res = await fetch(`/api/search?q=${query}`);
         const data = await res.json();
@@ -30,7 +30,7 @@ export default function SearchPage() {
       } catch (err) {
         console.error(err);
       } finally {
-        setLoading(false);
+
       }
     };
 
@@ -67,7 +67,7 @@ export default function SearchPage() {
   <div className="flex items-center group-hover:bg-[#DED8DC] px-2 py-1 rounded-full transition-all h-[50px]">
     <span className="text-[24px] text-[#1C1B1F] font-normal ml-2">{result.title}</span>
     <div className="text-[#1C1B1F] opacity-0 group-hover:opacity-100 transition-opacity ml-2 hover:bg-[#D3CBD0] rounded-full p-2">
-      <MdNorthEast size={24} />
+      <MdArrowOutward size={24} />
     </div>
   </div>
 </Link>
