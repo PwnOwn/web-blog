@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'
 const Footer = () => {
   const socialLinks = [
-    { name: 'GitHub', url: '#' },
+    { name: 'GitHub', url: 'https://www.github.com/PwnOwn' },
     { name: 'Twitter', url: '#' },
     { name: 'YouTube', url: '#' }
   ];
