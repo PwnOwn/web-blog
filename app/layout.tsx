@@ -39,8 +39,9 @@ export default function RootLayout({
         </Link>
         <div className="flex min-h-screen flex-col  dark:bg-[#141314]">
           <Sidebar />
-          <main className="flex-1 ml-[98px]">{children}</main>
-          <div className='ml-[98px]'>
+          
+          <main className="flex-1 md:ml-[98px]">{children}</main>
+          <div className='md:ml-[98px]'>
           <Footer />
           </div>
           
