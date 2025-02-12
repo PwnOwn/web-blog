@@ -82,7 +82,7 @@ export default function Sidebar() {
 
         // Check screen size on load and resize
         const checkScreenSize = () => {
-            setIsMobile(window.innerWidth <= 768) // Set for mobile detection (width <= 768px)
+            setIsMobile(window.innerWidth <= 768 && window.innerHeight <= 768) // Set for mobile detection (width <= 768px)
         }
         checkScreenSize()
         window.addEventListener("resize", checkScreenSize)
