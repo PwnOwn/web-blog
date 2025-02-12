@@ -49,7 +49,7 @@ export default function SearchPage() {
 
         <div role="list" className="flex flex-col items-start w-[96%] mt-[48px] gap-[12px]">
           {query === '' && (
-            <div className="ml-8 text-[16px] font-medium google-sans dark:text-[#CBC4CC]">Recent searches</div>
+            <div className="text-black ml-8 text-[16px] font-medium google-sans dark:text-[#CBC4CC]">Recent searches</div>
           )}
         </div>
 
