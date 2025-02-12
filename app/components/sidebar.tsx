@@ -143,10 +143,14 @@ export default function Sidebar() {
                 {/* 抽屉内容 */}
                 <div className={`flex-col fixed top-0 left-0 w-full bg-black/50 backdrop-blur-sm transition-all duration-300 ease-in-out  h-screen
                 ${isSidebarOpen ? "block" : "hidden"}`}
-                    onClick={() => setIsSidebarOpen(false)}
+                onClick={(e) => {
+                    if (e.target === e.currentTarget) {
+                        setIsSidebarOpen(false);
+                    }
+                }}
                 >
                     {/* 侧边栏 */}
-                    <div className={`overflow-y-auto fixed top-0 left-0 h-screen w-[320px] bg-[#F2ECEE] dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out  rounded-tr-[20px] rounded-br-[20px]
+                    <div className={`overflow-y-auto fixed top-0 left-0 h-screen w-[320px] bg-[#F2ECEE] dark:bg-[#211F21] shadow-lg transform transition-all duration-300 ease-in-out  rounded-tr-[20px] rounded-br-[20px]
                     ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
                     >
                         <div className="p-5">
