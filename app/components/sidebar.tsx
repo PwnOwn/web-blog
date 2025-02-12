@@ -240,9 +240,9 @@ export default function Sidebar() {
                                 className="mb-2 flex w-full flex-col items-center gap-1 p-2 text-center section-link my-[14px] mx-auto -mt-[2px]"
                             >
                                 <div
-                                    className={`flex h-[38px] w-[62px] items-center justify-center rounded-full transition-colors active hover:bg-[#E5DEE2] ${isSearchClicked || activeItem !== item.name
-                                        ? "bg-transparent dark:hover:bg-[#2E2B2E]"
-                                        : "bg-[#DCDAF5] dark:bg-[#45455A]"}`}
+                                    className={`flex h-[38px] w-[62px] items-center justify-center rounded-full  active ${isSearchClicked || activeItem !== item.name
+                                        ? "hover:bg-[#E5DEE2] bg-transparent dark:hover:bg-[#2E2B2E]"
+                                        : " bg-[#DCDAF5] dark:bg-[#45455A]"}`}
                                 >
                                     <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>
                                         {item.icon}
