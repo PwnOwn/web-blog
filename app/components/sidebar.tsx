@@ -147,7 +147,7 @@ export default function Sidebar() {
             {/* Theme Toggle - Fixed at Bottom */}
             <button
                 onClick={toggleTheme}
-                className="rounded-[32px] mt-auto flex h-10 w-10 items-center justify-center hover:bg-[#E5DEE2] dark:hover:bg-[#2E2C2E] border-2 outline outline-[1px] outline-[var(--theme-color-utility-outline)] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
+                className="rounded-[32px] mb-4 mt-auto flex h-10 w-10 items-center justify-center hover:bg-[#E5DEE2] dark:hover:bg-[#2E2C2E] border-2 outline outline-[1px] outline-[var(--theme-color-utility-outline)] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
             >
                 <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>
                     {isDarkMode ? "light_mode" : "dark_mode"}
