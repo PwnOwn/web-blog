@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Pool } from 'pg';
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgresql://shop_owner:rIePn6YCDz3O@ep-wandering-pond-a157diml-pooler.ap-southeast-1.aws.neon.tech/blog?sslmode=require'
+    connectionString: process.env.DATABASE_URL || 'postgres://neondb_owner:npg_hsN4QCwAIa5V@ep-lively-field-a1bbnr6b-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require'
 });
 
 async function getPostsFromDatabase(query: string) {  // Add type annotation
