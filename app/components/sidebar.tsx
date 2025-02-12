@@ -119,12 +119,12 @@ export default function Sidebar() {
 
                         {/* Submenu */}
                         {item.subItems && (
-                             <div className="invisible fixed left-[86px] top-0 min-w-[240px] bg-[--item-bg] dark:bg-[#211F21] rounded-tr-[24px] rounded-br-[24px]  opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 py-2 h-screen border-l-2 dark:border-[#483E51] border-[#E8E0E8]">
+                             <div className="invisible fixed left-[96px] top-0 min-w-[240px] bg-[--item-bg] dark:bg-[#211F21] rounded-tr-[20px] rounded-br-[20px]  opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 py-2 h-screen border-l-2 dark:border-[#483E51] border-[#E8E0E8] group-hover:shadow-[4px_0px_8px_rgba(1,0,0,0.1)]">
                                 {item.subItems.map((subItem) => (
                                     <Link
                                         key={subItem.name}
                                         href={subItem.route}
-                                        className={`flex h-[40px] items-center justify-between px-6 hover:bg-[#E5DEE2] rounded-[24px] ml-2 mr-2
+                                        className={`flex h-[40px] items-center justify-between px-6 hover:bg-[#E5DEE2]  rounded-[24px] ml-2 mr-2 
                                             dark:hover:bg-[#2E2B2E] ${pathname === subItem.route ? "bg-[#e7dff8] dark:bg-[#45455A]" : ""} 
                                             ${isDarkMode ? "text-white" : "text-black"}`}
                                     >
