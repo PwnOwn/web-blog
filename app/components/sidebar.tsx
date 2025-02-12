@@ -109,7 +109,7 @@ export default function Sidebar() {
     return (
         <div>
             {/* 移动端顶部导航栏 */}
-            <div className="md:hidden flex  items-center justify-between p-5 bg-gray-100 dark:bg-gray-800 bg-[#FFFFFF] fixedz-50 shadow-sm">
+            <div className="md:hidden flex  items-center justify-between p-5 bg-gray-100 dark:bg-[#0F0E0F] bg-[#FFFFFF] fixedz-50 shadow-sm">
                 <div className="flex space-x-2">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
