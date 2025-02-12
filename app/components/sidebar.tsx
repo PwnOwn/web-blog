@@ -157,28 +157,28 @@ export default function Sidebar() {
                                 {isSidebarOpen ? "menu_open" : "menu"}
                             </button>
                             <nav className="text-left">
-                                {menuItems.map((item) => (
-                                    <div key={item.name} className="group relative flex flex-col">
-                                        <Link
-                                            href={item.route}
-                                            onClick={() => {
-                                                setActiveItem(item.name);
-                                                setIsSearchClicked(false);
-                                            }}
-                                            className={`m-0 flex w-full flex-row items-center gap-1 p-2 section-link mx-auto rounded-[28px] ${activeItem === item.name ? 'bg-[#DCDAF5] dark:bg-[#45455A]' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`} // gap-4 added
-                                        >
-                                            <div className={`flex h-[44px] w-[68px] justify-center items-center rounded-full transition-colors ${activeItem === item.name ? '' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}> {/* Adjusted size and justify-center */}
-                                                <span className={`material-symbols-outlined ${isDarkMode ? 'text-white' : 'text-black'} text-xl`}> {/* text-xl added */}
-                                                    {item.icon}
-                                                </span>
-                                            </div>
-                                            <span className="text-base dark:text-white "> {/* text-base added */}
-                                                {item.name}
-                                            </span>
-                                        </Link>
-                                    </div>
-                                ))}
-                            </nav>
+                {menuItems.map((item) => (
+                    <div key={item.name} className="group relative flex flex-col">
+                        <Link
+                            href={item.route}
+                            onClick={() => {
+                                setActiveItem(item.name);
+                                setIsSearchClicked(false);
+                            }}
+                            className={`m-0 flex w-full flex-row items-center gap-1 p-2 section-link mx-auto rounded-[28px] ${activeItem === item.name ? 'bg-[#DCDAF5] dark:bg-[#45455A]' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}
+                        >
+                            <div className={`flex h-[44px] w-[68px] justify-center items-center rounded-full transition-colors ${activeItem === item.name ? '' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}>
+                                <span className={`material-symbols-outlined ${isDarkMode ? 'text-white' : 'text-black'} text-xl`}>
+                                    {item.icon}
+                                </span>
+                            </div>
+                            <span className={` dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
+                                {item.name}
+                            </span>
+                        </Link>
+                    </div>
+                ))}
+            </nav>
 
 
 
