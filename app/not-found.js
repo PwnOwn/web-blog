@@ -13,6 +13,7 @@ const NotFound = () => {
                     width={500}       // Set width for the container
                     height={300}      // Set height for the container
                     className="w-auto h-auto"
+                    layout="intrinsic"  // Use this if you want the image to scale based on intrinsic size
                     alt="404 - Page Not Found" // Always add an alt attribute for accessibility
                 />
             </div>
