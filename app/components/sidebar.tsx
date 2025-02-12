@@ -172,7 +172,7 @@ export default function Sidebar() {
                                     {item.icon}
                                 </span>
                             </div>
-                            <span className={` dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
+                            <span className={`text-black dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
                                 {item.name}
                             </span>
                         </Link>
