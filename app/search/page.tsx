@@ -69,7 +69,7 @@ export default function SearchPage() {
         </div>
 
         <div className="space-y-2 mt-20 ml-5 flex flex-col">
-
+            
           {results.map((result) => (
             <Link
               key={result.id}
