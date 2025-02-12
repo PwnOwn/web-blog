@@ -185,7 +185,7 @@ export default function Sidebar() {
 
 
                         </div>
-                        <div className="fixed bottom-0 w-full flex justify-center pb-6 safe-area-inset-bottom"> {/* Fixed to bottom, padding added */}
+                        <div className="fixed bottom-0 w-full flex justify-center pb-6 safe-area-inset-bottom" style={{ paddingBottom: `calc(env(safe-area-inset-bottom) + 24px)` }}> {/* Dynamic padding */}
                             <button
                                 onClick={toggleTheme}
                                 className={`rounded-[32px] flex h-16 w-60 items-center justify-center gap-2 transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] px-6 py-2 border ${isDarkMode
