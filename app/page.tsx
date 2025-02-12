@@ -9,7 +9,7 @@ export default function Home() {
       <section className="bg-[--there-bg]">
         <div className="min-h-screen bg-gray-50 flex items-center">
           <div className="max-w-3xl mx-auto px-8 py-16">
-            <h1 className="text-6xl font-normal mb-6 tracking-normal">
+            <h1 className="text-6xl font-normal mb-6 tracking-normal text-black">
               Welcome to my blog
             </h1>
             <div className="space-y-1 text-gray-800 mb-8">
