@@ -174,12 +174,12 @@ export default function Sidebar() {
 
 
                         </div>
-                        <div className="w-full flex justify-center mt-[150px]">
+                        <div className="fixed bottom-0 w-full flex justify-center pb-6"> {/* Fixed to bottom, padding added */}
                             <button
                                 onClick={toggleTheme}
                                 className={`rounded-[32px] flex h-16 w-60 items-center justify-center gap-2 transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] px-6 py-2 border ${isDarkMode
-                                    ? "bg-[#2E2C2E] hover:bg-[#45455A] text-white border-gray-700 dark:border-gray-300" // Dark mode styles with border
-                                    : "bg-[#E5DEE2] hover:bg-[#DCDAF5] text-black border-gray-300 dark:border-gray-700" // Light mode styles with border
+                                    ? "bg-[#2E2C2E] hover:bg-[#45455A] text-white border-gray-700 dark:border-gray-300"
+                                    : "bg-[#E5DEE2] hover:bg-[#DCDAF5] text-black border-gray-300 dark:border-gray-700"
                                     }`}
                             >
                                 <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>
