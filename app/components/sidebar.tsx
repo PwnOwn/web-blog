@@ -47,14 +47,28 @@ export default function Sidebar() {
     ]
 
     useEffect(() => {
-        const currentPath = pathname
-        const activeMenuItem = menuItems.find(
-            (item) => currentPath === item.route || item.subItems?.some((subItem) => currentPath === subItem.route),
-        )
-        if (activeMenuItem) {
-            setActiveItem(activeMenuItem.name)
+        const currentPath = pathname;
+
+        // 1. Check for exact matches first:
+        let activeMenuItem = menuItems.find(item => currentPath === item.route);
+
+        // 2. If no exact match, check for parent route matches (for sub-menus):
+        if (!activeMenuItem) {
+            activeMenuItem = menuItems.find(item => {
+                if (item.subItems) {
+                    return item.subItems.some(subItem => currentPath.startsWith(item.route) || currentPath === subItem.route); //startsWith to catch the parent route
+                }
+                return false;
+            });
         }
-    }, [pathname])
+
+        // 3. Set activeItem only if a match is found:
+        if (activeMenuItem) {
+            setActiveItem(activeMenuItem.name);
+        } else {
+            setActiveItem(''); // Or setActiveItem(""); if you prefer an empty string
+        }
+    }, [pathname,menuItems])
     {/* Add this useEffect hook */ }
     useEffect(() => {
         if (isSidebarOpen) {
