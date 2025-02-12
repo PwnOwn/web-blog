@@ -5,7 +5,7 @@ export default function Home() {
   
 
   return (
-    <main className="flex-1 bg-[--there-bg]">
+    <main className="flex-1 bg-[--there-bg] text-black">
       <section className="bg-[--there-bg]">
         <div className="min-h-screen bg-gray-50 flex items-center">
           <div className="max-w-3xl mx-auto px-8 py-16">
