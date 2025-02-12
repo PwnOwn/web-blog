@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image'
+
 const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', url: 'https://www.github.com/PwnOwn' },
@@ -22,7 +23,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className=" dark:bg-[#141314] py-12 px-4 sm:px-8 mt-[120px] border-t border-gray-200 dark:border-[#141314]">
+    <footer className="bg-[--there-bg] dark:bg-[#141314] py-12 px-4 sm:px-8 mt-[120px] border-t border-gray-200 dark:border-[#141314]">
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between gap-12 mb-16">

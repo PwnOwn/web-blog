@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      <section>
+      <section className="">
         <div className="min-h-screen bg-gray-50 flex items-center">
           <div className="max-w-3xl mx-auto px-8 py-16">
             <h1 className="text-6xl font-normal mb-6 tracking-normal">
