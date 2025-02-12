@@ -146,7 +146,7 @@ export default function Sidebar() {
                     onClick={() => setIsSidebarOpen(false)}
                 >
                     {/* 侧边栏 */}
-                    <div className={`fixed top-0 left-0 h-screen w-[320px] bg-[#F2ECEE] dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out  rounded-tr-[20px] rounded-br-[20px]
+                    <div className={`overflow-y-auto fixed top-0 left-0 h-screen w-[320px] bg-[#F2ECEE] dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out  rounded-tr-[20px] rounded-br-[20px]
                     ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
                     >
                         <div className="p-5">
@@ -185,7 +185,7 @@ export default function Sidebar() {
 
 
                         </div>
-                        <div className="fixed bottom-0 w-full flex justify-center pb-6 safe-area-inset-bottom" style={{ paddingBottom: `calc(env(safe-area-inset-bottom) + 24px)` }}> {/* Dynamic padding */}
+                        <div className="bottom-0 w-full flex justify-center pb-6 safe-area-inset-bottom" style={{ paddingBottom: `calc(env(safe-area-inset-bottom) + 24px)` }}> {/* Dynamic padding */}
                             <button
                                 onClick={toggleTheme}
                                 className={`rounded-[32px] flex h-16 w-60 items-center justify-center gap-2 transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] px-6 py-2 border ${isDarkMode
