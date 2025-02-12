@@ -214,7 +214,7 @@ export default function Sidebar() {
             </div>
 
 
-            <aside className="flex inset-y-0 h-full w-[98px] flex-col items-center bg-[#F2ECEE] py-4 dark:bg-[#211F21] fixed hidden md:flex">
+            <aside className="md:overflow-y-auto flex inset-y-0 h-full w-[98px] flex-col items-center bg-[#F2ECEE] py-4 dark:bg-[#211F21] fixed hidden md:flex">
 
 
                 {/* Search Icon */}
