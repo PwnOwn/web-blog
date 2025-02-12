@@ -174,7 +174,7 @@ export default function Sidebar() {
 
 
                         </div>
-                        <div className="w-full flex justify-center mt-[180px]">
+                        <div className="w-full flex justify-center mt-[150px]">
                             <button
                                 onClick={toggleTheme}
                                 className={`rounded-[32px] flex h-16 w-60 items-center justify-center gap-2 transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] px-6 py-2 border ${isDarkMode
