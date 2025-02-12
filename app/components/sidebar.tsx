@@ -281,7 +281,7 @@ export default function Sidebar() {
                                                 <span
                                                     className={`material-symbols-outlined text-sm ${isDarkMode ? "text-white/60" : "text-black/60"}`}
                                                 >
-                                                    expand_more
+                                                   arrow_drop_down
                                                 </span>
                                             )}
                                         </Link>
