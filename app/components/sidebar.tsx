@@ -55,7 +55,18 @@ export default function Sidebar() {
             setActiveItem(activeMenuItem.name)
         }
     }, [pathname])
+    {/* Add this useEffect hook */ }
+    useEffect(() => {
+        if (isSidebarOpen) {
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
 
+        return () => {
+            document.body.style.overflow = 'auto'; // Restore scrolling when component unmounts
+        };
+    }, [isSidebarOpen]);
     useEffect(() => {
         if (isSearchClicked) {
             setActiveItem("")
