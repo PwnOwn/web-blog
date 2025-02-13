@@ -136,14 +136,14 @@ export default function Sidebar() {
                         onClick={() => setIsSearchClicked(true)}
                         className="material-symbols-outlined p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 "
                     >
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6  text-black dark:text-white">
-  <title>material-design</title>
-  <path d="M21,12C21,9.97 20.33,8.09 19,6.38V17.63C20.33,15.97 21,14.09 21,12M17.63,19H6.38C7.06,19.55 7.95,20 9.05,20.41C10.14,20.8 11.13,21 12,21C12.88,21 13.86,20.8 14.95,20.41C16.05,20 16.94,19.55 17.63,19M11,17L7,9V17H11M17,9L13,17H17V9M12,14.53L15.75,7H8.25L12,14.53M17.63,5C15.97,3.67 14.09,3 12,3C9.91,3 8.03,3.67 6.38,5H17.63M5,17.63V6.38C3.67,8.09 3,9.97 3,12C3,14.09 3.67,15.97 5,17.63M23,12C23,15.03 21.94,17.63 19.78,19.78C17.63,21.94 15.03,23 12,23C8.97,23 6.38,21.94 4.22,19.78C2.06,17.63 1,15.03 1,12C1,8.97 2.06,6.38 4.22,4.22C6.38,2.06 8.97,1 12,1C15.03,1 17.63,2.06 19.78,4.22C21.94,6.38 23,8.97 23,12Z" />
-</svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6  text-black dark:text-white">
+                            <title>material-design</title>
+                            <path d="M21,12C21,9.97 20.33,8.09 19,6.38V17.63C20.33,15.97 21,14.09 21,12M17.63,19H6.38C7.06,19.55 7.95,20 9.05,20.41C10.14,20.8 11.13,21 12,21C12.88,21 13.86,20.8 14.95,20.41C16.05,20 16.94,19.55 17.63,19M11,17L7,9V17H11M17,9L13,17H17V9M12,14.53L15.75,7H8.25L12,14.53M17.63,5C15.97,3.67 14.09,3 12,3C9.91,3 8.03,3.67 6.38,5H17.63M5,17.63V6.38C3.67,8.09 3,9.97 3,12C3,14.09 3.67,15.97 5,17.63M23,12C23,15.03 21.94,17.63 19.78,19.78C17.63,21.94 15.03,23 12,23C8.97,23 6.38,21.94 4.22,19.78C2.06,17.63 1,15.03 1,12C1,8.97 2.06,6.38 4.22,4.22C6.38,2.06 8.97,1 12,1C15.03,1 17.63,2.06 19.78,4.22C21.94,6.38 23,8.97 23,12Z" />
+                        </svg>
 
-                
-                  
-             
+
+
+
 
                     </Link>
                 </div>
@@ -195,9 +195,16 @@ export default function Sidebar() {
                                             className={`m-0 flex w-full flex-row items-center gap-1 p-2 section-link mx-auto rounded-[28px] ${activeItem === item.name ? 'bg-[#DCDAF5] dark:bg-[#45455A]' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}
                                         >
                                             <div className={`flex h-[44px] w-[68px] justify-center items-center rounded-full transition-colors ${activeItem === item.name ? '' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}>
-                                                <span className={`material-symbols-outlined ${isDarkMode ? 'text-white' : 'text-black'} text-xl`}>
-                                                    {item.icon}
-                                                </span>
+                                                {item.name === "Home" ? (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6  text-black dark:text-white">
+                                                        <title>material-design</title>
+                                                        <path d="M21,12C21,9.97 20.33,8.09 19,6.38V17.63C20.33,15.97 21,14.09 21,12M17.63,19H6.38C7.06,19.55 7.95,20 9.05,20.41C10.14,20.8 11.13,21 12,21C12.88,21 13.86,20.8 14.95,20.41C16.05,20 16.94,19.55 17.63,19M11,17L7,9V17H11M17,9L13,17H17V9M12,14.53L15.75,7H8.25L12,14.53M17.63,5C15.97,3.67 14.09,3 12,3C9.91,3 8.03,3.67 6.38,5H17.63M5,17.63V6.38C3.67,8.09 3,9.97 3,12C3,14.09 3.67,15.97 5,17.63M23,12C23,15.03 21.94,17.63 19.78,19.78C17.63,21.94 15.03,23 12,23C8.97,23 6.38,21.94 4.22,19.78C2.06,17.63 1,15.03 1,12C1,8.97 2.06,6.38 4.22,4.22C6.38,2.06 8.97,1 12,1C15.03,1 17.63,2.06 19.78,4.22C21.94,6.38 23,8.97 23,12Z" />
+                                                    </svg>
+                                                ) : (
+                                                    <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"} text-xl`}>
+                                                        {item.icon}
+                                                    </span>
+                                                )}
                                             </div>
                                             <span className={`text-black dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
                                                 {item.name}
@@ -267,9 +274,16 @@ export default function Sidebar() {
                                         ? "hover:bg-[#E5DEE2] bg-transparent dark:hover:bg-[#2E2B2E]"
                                         : " bg-[#DCDAF5] dark:bg-[#45455A]"}`}
                                 >
-                                    <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>
-                                        {item.icon}
-                                    </span>
+                                    {item.name === "Home" ? (
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6  text-black dark:text-white">
+                                            <title>material-design</title>
+                                            <path d="M21,12C21,9.97 20.33,8.09 19,6.38V17.63C20.33,15.97 21,14.09 21,12M17.63,19H6.38C7.06,19.55 7.95,20 9.05,20.41C10.14,20.8 11.13,21 12,21C12.88,21 13.86,20.8 14.95,20.41C16.05,20 16.94,19.55 17.63,19M11,17L7,9V17H11M17,9L13,17H17V9M12,14.53L15.75,7H8.25L12,14.53M17.63,5C15.97,3.67 14.09,3 12,3C9.91,3 8.03,3.67 6.38,5H17.63M5,17.63V6.38C3.67,8.09 3,9.97 3,12C3,14.09 3.67,15.97 5,17.63M23,12C23,15.03 21.94,17.63 19.78,19.78C17.63,21.94 15.03,23 12,23C8.97,23 6.38,21.94 4.22,19.78C2.06,17.63 1,15.03 1,12C1,8.97 2.06,6.38 4.22,4.22C6.38,2.06 8.97,1 12,1C15.03,1 17.63,2.06 19.78,4.22C21.94,6.38 23,8.97 23,12Z" />
+                                        </svg>
+                                    ) : (
+                                        <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"} text-xl`}>
+                                            {item.icon}
+                                        </span>
+                                    )}
                                 </div>
                                 <span className="text-xs dark:text-white">{item.name}</span>
                             </Link>
