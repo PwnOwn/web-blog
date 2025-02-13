@@ -7,6 +7,7 @@
   --foreground: #171717;
   --there-bg:#FEFBFF;
   --item-bg:#F2ECEE;
+  --mio-theme-color-surface-1:#f8f1f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,4 +21,9 @@ body {
   color: var(--foreground);
   background: var(--there-bg);
   font-family: Arial, Helvetica, sans-serif;
+}
+@layer utilities {
+  .font-variation-grads {
+    font-variation-settings: "GRAD" 125;
+  }
 }
