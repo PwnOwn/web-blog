@@ -1,19 +1,27 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import BlogCard from "../components/ui/blog-card"
-import Pagehader from "../components/pagehader"
 import MaterialDesignHero from "../components/pagehader"
 const blogPosts = [
   {
     id: 1,
-    title: "Material Design for XR (Developer Preview)",
+    title: "Material Design for XR",
     description: "Building UI that adapts for XR with familiar frameworks and tools",
     date: "Dec 12, 2024",
     image: "/404.png",
     year: 2024,
+    href:'#'
+  },
+  {
+    id: 11,
+    title: "Material Design for XR test",
+    description: "Building UI that adapts for XR with familiar frameworks and tools",
+    date: "Dec 12, 2024",
+    image: "/404.png",
+    year: 2024,
+    href:'#'
   },
   {
     id: 2,
@@ -22,6 +30,7 @@ const blogPosts = [
     date: "Nov 04, 2024",
     image: "/404.png",
     year: 2018,
+    href:'#'
   },
   {
     id: 3,
@@ -30,6 +39,7 @@ const blogPosts = [
     date: "Nov 04, 2019",
     image: "/404.png",
     year: 2019,
+    href:'#'
   },
   {
     id: 4,
@@ -38,6 +48,7 @@ const blogPosts = [
     date: "Nov 04, 2019",
     image: "/404.png",
     year: 2021,
+    href:'#'
   },
   {
     id: 5,
@@ -46,6 +57,7 @@ const blogPosts = [
     date: "Nov 04, 2019",
     image: "/404.png",
     year: 2023,
+    href:'#'
   },
   {
     id: 6,
@@ -54,6 +66,7 @@ const blogPosts = [
     date: "Nov 04, 2019",
     image: "/404.png",
     year: 2022,
+    href:'#'
   },
   {
     id: 7,
@@ -62,6 +75,7 @@ const blogPosts = [
     date: "Nov 04, 2019",
     image: "/404.png",
     year: 2020,
+    href:'#'
   },
 
 ]
@@ -108,12 +122,12 @@ export default function BlogPage() {
   return (
     <div className="dark:text-white">
       <MaterialDesignHero
-      videoUrl="https://kstatic.googleusercontent.com/files/65da8f0326427a8e71bfa678348f3fa1a4bb1660e0b013591eb3bfd9df455bd5a3334249de61229029be7d2fd7cf18d4e143728b7e0702b6bde6251a9c64511a"
-      date="Dec 16, 2020"
-      title="The State of Design Systems: 2020"
-      description="A community survey of design systems, from creation to implementation and beyond"
+        videoUrl="https://kstatic.googleusercontent.com/files/65da8f0326427a8e71bfa678348f3fa1a4bb1660e0b013591eb3bfd9df455bd5a3334249de61229029be7d2fd7cf18d4e143728b7e0702b6bde6251a9c64511a"
+        date="Dec 16, 2020"
+        title="The State of Design Systems: 2020"
+        description="A community survey of design systems, from creation to implementation and beyond"
 
-    />
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6  py-12">
 
         <div className="grid  lg:grid-cols-[1fr,300px] gap-12">
@@ -133,18 +147,18 @@ export default function BlogPage() {
                 {blogPosts.filter((post) => post.year === year).length === 0 ? (
                   <p>No blog posts for this year.</p>
                 ) : (
-                  <div className="grid grid-cols-2  gap-[8px] mb-3 ">
+                  <div className="grid grid-cols-1 md:grid-cols-2  gap-[8px] mb-3 ">
                     {blogPosts
                       .filter((post) => post.year === year)
                       .map((post) => (
                         <article key={post.id} className="grid gap-6  rounded-lg overflow-hidden h-[510px] ">
 
                           <BlogCard
-                            title="Material Design 3 for Compose version 1.3"
-                            description="Exploring the 1.3 release of Material Design 3 for Compose"
-                            date="Sep 10, 2024"
-                            imageUrl="/pic.jpg"
-                            href="#"
+                            title={post.title} 
+                            description={post.description || "Default description"} 
+                            date={post.date || "Sep 10, 2024"} 
+                            imageUrl={post.image || "/pic.jpg"}  
+                            href={post.href || "#"} 
                           />
                         </article>
 
