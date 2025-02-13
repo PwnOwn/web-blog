@@ -22,24 +22,36 @@ interface Post {
   href: string;
 }
 
-// 从数据库中获取所有帖子
-async function getAllPostsFromDatabase(): Promise<Post[]> {
+// 从数据库中获取指定 href 的帖子
+async function getPostFromDatabaseByHref(href: string): Promise<Post | null> {
   try {
-    const result = await pool.query('SELECT id, title, description, date, imageURL, year, href FROM posts;');
-    return result.rows;
+    const result = await pool.query(
+      'SELECT id, title, description, date, imageURL, year, href FROM posts WHERE href = $1;',
+      [href]
+    );
+    return result.rows.length > 0 ? result.rows[0] : null;
   } catch (error) {
-    console.error('Error fetching posts:', error);
-    return [];
+    console.error('Error fetching post:', error);
+    return null;
   }
 }
 
 // 定义 API 路由处理函数
 export async function GET(request: Request): Promise<NextResponse> {
   try {
-    const posts = await getAllPostsFromDatabase();
-    return NextResponse.json({ posts }, { status: 200 });
+    // 解析请求 URL 以获取 href 参数
+    const url = new URL(request.url);
+    const href = url.pathname.split('/').pop() || '';
+
+    const post = await getPostFromDatabaseByHref(href);
+
+    if (post) {
+      return NextResponse.json({ post }, { status: 200 });
+    } else {
+      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    }
   } catch (error) {
     console.error('Error in API route:', error);
-    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 });
   }
 }
