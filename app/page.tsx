@@ -47,11 +47,11 @@ export default function Home() {
 
   <div className="w-full max-w-[1200px]">
     <div className="my-24 mx-auto ">
-      <h2 className="font-google-sans text-[57px] mb:text-[24px] m-24 ml-[260px] md:mx-auto">
+      <h2 className="font-google-sans text-[57px] mb:text-[24px] m-24 mx-auto md:ml-[260px]">
         News &amp; launches
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[8px] mb-3 w-full ml-[265px] md:mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[8px] mb-3 w-full mx-auto  md:ml-[265px] ">
         {/* Map through the latest 3 blog posts and render them */}
         {posts.slice(0, 3).map((post) => (
           <article key={post.id} className="rounded-[24px] overflow-hidden h-[350px] w-full">
