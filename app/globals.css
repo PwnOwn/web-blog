@@ -10,6 +10,7 @@
   --mio-theme-color-surface-1:#f8f1f6;
   --theme-color-tertiary-container: #f1d3f9;
   --theme-color-on-surface-variant: #4d4256;
+  --there-hover-coloer:#DCDAF5;
 }
 
 @media (prefers-color-scheme: dark) {

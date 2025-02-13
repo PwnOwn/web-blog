@@ -19,8 +19,8 @@ const NotFound = () => {
                 />
             </div>
 
-            <h1 style={{ fontSize: '2.6rem' }} className='text-black dark:text-white'>This page cannot be found</h1>
-            <p style={{ fontSize: '1.1rem' }} className='text-black dark:text-white'>
+            <h1 style={{ fontSize: '2.6rem' }} className='text-black dark:text-white font-google-sans'>This page cannot be found</h1>
+            <p style={{ fontSize: '1.1rem' }} className='text-black dark:text-white font-google-sans'>
                 Try a different destination or head back to<br/> the&nbsp;
                 <Link
                     href="/"

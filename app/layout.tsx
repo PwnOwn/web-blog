@@ -43,8 +43,8 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col  dark:bg-[#141314] ">
           <Sidebar />
           
-          <main className="flex-1 md:ml-[98px] md:mt-0 mt-[75px]">{children}</main>
-          <div className='md:ml-[98px]'>
+          <main className="flex-1 md:ml-[98px] md:mt-0 mt-[75px] font-google-sans">{children}</main>
+          <div className='md:ml-[98px] font-google-sans'>
           <Footer />
           </div>
           
