@@ -54,7 +54,7 @@ export default function PostPage() {
       day: 'numeric',
     });
   };
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="mx-auto">Loading...</div>;
   if (!post) {
     return <div>Post not found.</div>;
   }
@@ -68,7 +68,8 @@ export default function PostPage() {
           description={post.description}
           titleSize="text-[48px] md:text-[64px]" // 自定义标题大小
         />
-      
+      <div>{ post.title } test
+        </div>
     </div>
   );
 }
