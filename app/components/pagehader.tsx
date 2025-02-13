@@ -26,7 +26,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl }) => {
   };
 
   return (
-    <div className="relative h-[200px] md:h-full w-full rounded-[24px] overflow-hidden">
+    <div className="relative h-[200px] md:h-full w-full rounded-[24px] overflow-hidden ">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -58,7 +58,7 @@ interface TextBlockProps {
 
 const TextBlock: React.FC<TextBlockProps> = ({ date, title, description, titleSize = "text-[28px] md:text-[40px]" }) => {
   return (
-    <div className="flex flex-col justify-center p-[40px] md:p-[80px] rounded-[24px] bg-[var(--mio-theme-color-surface-1)] dark:bg-[#1C1B1D] bg-[0_50%] bg-cover">
+    <div className="flex flex-col justify-center p-[80px] md:p-[80px] rounded-[24px] bg-[var(--mio-theme-color-surface-1)] dark:bg-[#1C1B1D] bg-[0_50%] bg-cover">
       <div className="flex flex-col justify-center max-w-[840px] m-0 h-full md:md:min-h-[400px]">
         <div className="text-[14px] mb-2 md:text-[16px] font-google-sans">
           {date}

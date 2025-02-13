@@ -68,7 +68,7 @@ export default function Sidebar() {
         } else {
             setActiveItem(''); // Or setActiveItem(""); if you prefer an empty string
         }
-    }, [pathname,menuItems])
+    }, [pathname, menuItems])
     {/* Add this useEffect hook */ }
     useEffect(() => {
         if (isSidebarOpen) {
@@ -123,7 +123,7 @@ export default function Sidebar() {
     return (
         <div>
             {/* 移动端顶部导航栏 */}
-            <div className="md:hidden flex  items-center justify-between p-5 bg-gray-100 dark:bg-[#0F0E0F] bg-[#FFFFFF] fixedz-50 shadow-sm">
+            <div className="md:hidden flex w-full justify-between   items-center p-4 fixed top-0 left-0 z-50 bg-white dark:bg-[#141314] shadow-md">
                 <div className="flex space-x-2">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -138,7 +138,6 @@ export default function Sidebar() {
                     >
                         <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>radio_button_unchecked</span>
                     </Link>
-
                 </div>
 
                 <div className="flex space-x-2">
@@ -154,14 +153,16 @@ export default function Sidebar() {
 
 
 
+
+
                 {/* 抽屉内容 */}
                 <div className={`flex-col fixed top-0 left-0 w-full bg-black/50 backdrop-blur-sm transition-all duration-300 ease-in-out  h-screen
                 ${isSidebarOpen ? "block" : "hidden"}`}
-                onClick={(e) => {
-                    if (e.target === e.currentTarget) {
-                        setIsSidebarOpen(false);
-                    }
-                }}
+                    onClick={(e) => {
+                        if (e.target === e.currentTarget) {
+                            setIsSidebarOpen(false);
+                        }
+                    }}
                 >
                     {/* 侧边栏 */}
                     <div className={`overflow-y-auto fixed top-0 left-0 h-screen w-[320px] bg-[#F2ECEE] dark:bg-[#211F21] shadow-lg transform transition-all duration-300 ease-in-out  rounded-tr-[20px] rounded-br-[20px]
@@ -175,28 +176,28 @@ export default function Sidebar() {
                                 {isSidebarOpen ? "menu_open" : "menu"}
                             </button>
                             <nav className="text-left">
-                {menuItems.map((item) => (
-                    <div key={item.name} className="group relative flex flex-col">
-                        <Link
-                            href={item.route}
-                            onClick={() => {
-                                setActiveItem(item.name);
-                                setIsSearchClicked(false);
-                            }}
-                            className={`m-0 flex w-full flex-row items-center gap-1 p-2 section-link mx-auto rounded-[28px] ${activeItem === item.name ? 'bg-[#DCDAF5] dark:bg-[#45455A]' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}
-                        >
-                            <div className={`flex h-[44px] w-[68px] justify-center items-center rounded-full transition-colors ${activeItem === item.name ? '' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}>
-                                <span className={`material-symbols-outlined ${isDarkMode ? 'text-white' : 'text-black'} text-xl`}>
-                                    {item.icon}
-                                </span>
-                            </div>
-                            <span className={`text-black dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
-                                {item.name}
-                            </span>
-                        </Link>
-                    </div>
-                ))}
-            </nav>
+                                {menuItems.map((item) => (
+                                    <div key={item.name} className="group relative flex flex-col">
+                                        <Link
+                                            href={item.route}
+                                            onClick={() => {
+                                                setActiveItem(item.name);
+                                                setIsSearchClicked(false);
+                                            }}
+                                            className={`m-0 flex w-full flex-row items-center gap-1 p-2 section-link mx-auto rounded-[28px] ${activeItem === item.name ? 'bg-[#DCDAF5] dark:bg-[#45455A]' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}
+                                        >
+                                            <div className={`flex h-[44px] w-[68px] justify-center items-center rounded-full transition-colors ${activeItem === item.name ? '' : 'hover:bg-[#E5DEE2] dark:hover:bg-[#2E2B2E]'}`}>
+                                                <span className={`material-symbols-outlined ${isDarkMode ? 'text-white' : 'text-black'} text-xl`}>
+                                                    {item.icon}
+                                                </span>
+                                            </div>
+                                            <span className={`text-black dark:text-white ${activeItem === item.name ? 'font-bold' : ''}`}>
+                                                {item.name}
+                                            </span>
+                                        </Link>
+                                    </div>
+                                ))}
+                            </nav>
 
 
 
@@ -281,7 +282,7 @@ export default function Sidebar() {
                                                 <span
                                                     className={`material-symbols-outlined text-sm ${isDarkMode ? "text-white/60" : "text-black/60"}`}
                                                 >
-                                                   arrow_drop_down
+                                                    arrow_drop_down
                                                 </span>
                                             )}
                                         </Link>
@@ -295,7 +296,7 @@ export default function Sidebar() {
                 {/* Theme Toggle - Fixed at Bottom */}
                 <button
                     onClick={toggleTheme}
-                   className="rounded-[32px] mb-5 mt-auto flex h-10 w-10 items-center justify-center hover:bg-[#E5DEE2] dark:hover:bg-[#2E2C2E] border-2 outline outline-[1px] outline-[var(--theme-color-utility-outline)] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] h-[2.5rem] w-[2.5rem]"
+                    className="rounded-[32px] mb-5 mt-auto flex h-10 w-10 items-center justify-center hover:bg-[#E5DEE2] dark:hover:bg-[#2E2C2E] border-2 outline outline-[1px] outline-[var(--theme-color-utility-outline)] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] h-[2.5rem] w-[2.5rem]"
                 >
                     <span className={`material-symbols-outlined ${isDarkMode ? "text-white" : "text-black"}`}>
                         {isDarkMode ? "light_mode" : "dark_mode"}
