@@ -126,11 +126,11 @@ export default function BlogPage() {
                 {blogPosts.filter((post) => post.year === year).length === 0 ? (
                   <p>No blog posts for this year.</p>
                 ) : (
-                  <div className="grid grid-cols-2  gap-[8px] mb-3">
+                  <div className="grid grid-cols-2  gap-[8px] mb-3 ">
                     {blogPosts
                       .filter((post) => post.year === year)
                       .map((post) => (
-                        <article key={post.id} className="grid gap-6 bg-white rounded-lg overflow-hidden h-[510px]">
+                        <article key={post.id} className="grid gap-6 bg-white rounded-lg overflow-hidden h-[510px] ">
 
                           <BlogCard
                             title="Material Design 3 for Compose version 1.3"
@@ -166,7 +166,7 @@ export default function BlogPage() {
                     <Link
                       key={year}
                       href={`#${year}`}
-                      className={`block px-3 py-2 rounded-[24px] text-sm w-[150px] ${activeYear === year ? "border border-[#9A979B]  text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads" : " text-[#736A7A] font-google-sans hover:bg-[#ECE9EE]"}`}
+                      className={`block px-3 py-2 rounded-[24px]  text-sm w-[150px] ${activeYear === year ? "border border-[#9A979B]  text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads" : " text-[#736A7A] font-google-sans hover:bg-[#ECE9EE]"}`}
                     >
                       {year}
                     </Link>
