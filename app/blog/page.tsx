@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import BlogCard from "../components/ui/blog-card"
 import Pagehader from "../components/pagehader"
+import MaterialDesignHero from "../components/pagehader"
 const blogPosts = [
   {
     id: 1,
@@ -105,8 +106,14 @@ export default function BlogPage() {
   }, [handleIntersection])
 
   return (
-    <div>
-      <Pagehader />
+    <div className="dark:text-white">
+      <MaterialDesignHero
+      videoUrl="https://kstatic.googleusercontent.com/files/65da8f0326427a8e71bfa678348f3fa1a4bb1660e0b013591eb3bfd9df455bd5a3334249de61229029be7d2fd7cf18d4e143728b7e0702b6bde6251a9c64511a"
+      date="Dec 16, 2020"
+      title="The State of Design Systems: 2020"
+      description="A community survey of design systems, from creation to implementation and beyond"
+
+    />
       <div className="max-w-7xl mx-auto px-4 sm:px-6  py-12">
 
         <div className="grid  lg:grid-cols-[1fr,300px] gap-12">
@@ -130,7 +137,7 @@ export default function BlogPage() {
                     {blogPosts
                       .filter((post) => post.year === year)
                       .map((post) => (
-                        <article key={post.id} className="grid gap-6 bg-white rounded-lg overflow-hidden h-[510px] ">
+                        <article key={post.id} className="grid gap-6  rounded-lg overflow-hidden h-[510px] ">
 
                           <BlogCard
                             title="Material Design 3 for Compose version 1.3"
