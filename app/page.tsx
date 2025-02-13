@@ -16,6 +16,22 @@ export default function Home() {
           titleSize="text-[48px] md:text-[64px]" // 自定义标题大小
         />
       </div>
+      <div className="w-full max-w-[1200px]  ">
+        <div className="my-24 mx-auto ml-[265px]">
+          <h2 className="font-google-sans text-[57px] mb:text-[24px] m-24">News &amp; launches</h2>
+        <div>
+          <div className="w-[25px] h-[25px]">
+              test box
+          </div>
+          <div className="w-[25px] h-[25px]">
+              test box
+          </div>
+          <div className="w-[25px] h-[25px]">
+              test box
+          </div>
+          </div>
+          </div>
+        </div>
     </main>
   );
 }

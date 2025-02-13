@@ -1,124 +1,95 @@
-"use client"
+'use client'; // 确保这行在文件顶部
 
-import { useEffect, useRef, useState, useCallback } from "react"
-import Link from "next/link"
-import BlogCard from "../components/ui/blog-card"
-import MaterialDesignHero from "../components/pagehader"
-const blogPosts = [
-  {
-    id: 1,
-    title: "Material Design for XR",
-    description: "Building UI that adapts for XR with familiar frameworks and tools",
-    date: "Dec 12, 2024",
-    image: "/404.png",
-    year: 2024,
-    href:'#'
-  },
-  {
-    id: 11,
-    title: "Material Design for XR test",
-    description: "Building UI that adapts for XR with familiar frameworks and tools",
-    date: "Dec 12, 2024",
-    image: "/404.png",
-    year: 2024,
-    href:'#'
-  },
-  {
-    id: 2,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2024",
-    image: "/404.png",
-    year: 2018,
-    href:'#'
-  },
-  {
-    id: 3,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2019",
-    image: "/404.png",
-    year: 2019,
-    href:'#'
-  },
-  {
-    id: 4,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2019",
-    image: "/404.png",
-    year: 2021,
-    href:'#'
-  },
-  {
-    id: 5,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2019",
-    image: "/404.png",
-    year: 2023,
-    href:'#'
-  },
-  {
-    id: 6,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2019",
-    image: "/404.png",
-    year: 2022,
-    href:'#'
-  },
-  {
-    id: 7,
-    title: "Unlocking component flexibility with slots in Figma",
-    description: 'One less reason to "detach instance"',
-    date: "Nov 04, 2019",
-    image: "/404.png",
-    year: 2020,
-    href:'#'
-  },
+import { useEffect, useRef, useState, useCallback } from "react";
+import Link from "next/link";
+import BlogCard from "../components/ui/blog-card";
+import MaterialDesignHero from "../components/pagehader";
 
-]
-
-const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018]
+interface BlogPost {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  imageURL: string;
+  year: number; // 确保 year 是数字类型
+  href: string;
+}
 
 export default function BlogPage() {
-  const [activeYear, setActiveYear] = useState(2024)
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [activeYear, setActiveYear] = useState(2024);
+  const [years, setYears] = useState<number[]>([]);
 
-  // Change here: Ensure the ref is typed correctly.
-  const yearRefs = useRef<{ [key: number]: HTMLDivElement | null }>({})
+  const yearRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
 
   const handleIntersection = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const year = parseInt(entry.target.id)
-          setActiveYear(year)
+          const year = parseInt(entry.target.id);
+          setActiveYear(year);
         }
-      })
+      });
     },
-    [],
-  )
+    []
+  );
 
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const res = await fetch('/api/blog-posts');
+        if (!res.ok) {
+          throw new Error(`Failed to fetch blog posts: ${res.status}`);
+        }
+        const data = await res.json();
+
+        // 确保 data.posts 是一个数组
+        if (Array.isArray(data.posts)) {
+          setBlogPosts(data.posts);
+
+          // 提取年份并去重
+          const uniqueYears = extractUniqueYears(data.posts);
+          setYears(uniqueYears);
+        } else {
+          console.error("Expected data.posts to be an array");
+        }
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+  const extractUniqueYears = (posts: BlogPost[]) => {
+    return Array.from(
+      new Set(posts.map((post) => post.year))
+    ).sort((a, b) => b - a);
+  };
   useEffect(() => {
     const observers = years.map((year) => {
       const observer = new IntersectionObserver(handleIntersection, {
         threshold: 0.5,
-      })
+      });
 
-      // Ensure the ref is assigned and used properly here.
       if (yearRefs.current[year]) {
-        observer.observe(yearRefs.current[year]!)
+        observer.observe(yearRefs.current[year]!);
       }
 
-      return observer
-    })
+      return observer;
+    });
 
     return () => {
-      observers.forEach((observer) => observer.disconnect())
-    }
-  }, [handleIntersection])
-
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [handleIntersection, years]);
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
   return (
     <div className="dark:text-white">
       <MaterialDesignHero
@@ -126,42 +97,37 @@ export default function BlogPage() {
         date="Dec 16, 2020"
         title="The State of Design Systems: 2020"
         description="A community survey of design systems, from creation to implementation and beyond"
-
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6  py-12">
-
-        <div className="grid  lg:grid-cols-[1fr,300px] gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        <div className="grid lg:grid-cols-[1fr,300px] gap-12">
           <main className="m-auto">
             <h1 className="text-5xl font-bold mb-16">All blog posts</h1>
 
             {years.map((year) => (
               <div
                 key={year}
-                id={String(year)} // Ensure each year section has a unique id for IntersectionObserver to track
+                id={String(year)}
                 ref={(el) => {
-                  // Use optional chaining to ensure `el` is assigned correctly
-                  if (el) yearRefs.current[year] = el
-                }} // Correctly assign the ref
+                  if (el) yearRefs.current[year] = el;
+                }}
               >
                 <h2 className="text-3xl font-bold mb-8">{year}</h2>
                 {blogPosts.filter((post) => post.year === year).length === 0 ? (
                   <p>No blog posts for this year.</p>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2  gap-[8px] mb-3 ">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[8px] mb-3">
                     {blogPosts
                       .filter((post) => post.year === year)
                       .map((post) => (
-                        <article key={post.id} className="grid gap-6  rounded-lg overflow-hidden h-[510px] ">
-
+                        <article key={post.id} className="grid gap-6 rounded-lg overflow-hidden h-[510px]">
                           <BlogCard
-                            title={post.title} 
-                            description={post.description || "Default description"} 
-                            date={post.date || "Sep 10, 2024"} 
-                            imageUrl={post.image || "/pic.jpg"}  
-                            href={post.href || "#"} 
+                            title={post.title}
+                            description={post.description || "Default description"}
+                            date={formatDate(post.date) || "Sep 10, 2024"}
+                            imageUrl={post.imageURL || "/pic.jpg"}
+                            href={post.href || "#"}
                           />
                         </article>
-
                       ))}
                   </div>
                 )}
@@ -187,7 +153,11 @@ export default function BlogPage() {
                     <Link
                       key={year}
                       href={`#${year}`}
-                      className={`block px-3 py-2 rounded-[24px]  text-sm w-[150px] ${activeYear === year ? "border border-[#9A979B]  text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads" : " text-[#736A7A] font-google-sans hover:bg-[#ECE9EE]"}`}
+                      className={`block px-3 py-2 rounded-[24px] text-sm w-[150px] ${
+                        activeYear === year
+                          ? "border border-[#9A979B] text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads"
+                          : "text-[#736A7A] font-google-sans hover:bg-[#ECE9EE]"
+                      }`}
                     >
                       {year}
                     </Link>
@@ -199,6 +169,5 @@ export default function BlogPage() {
         </div>
       </div>
     </div>
-
-  )
+  );
 }

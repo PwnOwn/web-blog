@@ -8,8 +8,8 @@ const pool = new Pool({
 async function getPostsFromDatabase(query: string) {  // Add type annotation
     try {
         const result = await pool.query(
-            'SELECT id, title, route FROM posts WHERE LOWER(title) LIKE LOWER($1)', // Include id in the SELECT
-            [`%${query}%`]
+            'SELECT id, title, href FROM posts WHERE LOWER(title) LIKE LOWER($1)', // 根据文章标题进行模糊搜索
+            [`%${query}%`]  // 使用 query 来进行匹配
         );
         return result.rows;
     } catch (error) {

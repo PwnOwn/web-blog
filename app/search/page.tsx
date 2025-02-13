@@ -6,7 +6,7 @@ import { MdArrowOutward } from 'react-icons/md';
 interface Post {
   id: number;
   title: string;
-  route: string;
+  href: string;
 }
 
 export default function SearchPage() {
@@ -73,7 +73,7 @@ export default function SearchPage() {
           {results.map((result) => (
             <Link
               key={result.id}
-              href={result.route}
+              href={`/posts/${result.href}`}
               className="group inline-flex items-center px-4 py-2 rounded-full transition-all max-w-fit"
               aria-label={result.title}
             >

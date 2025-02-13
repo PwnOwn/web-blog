@@ -17,7 +17,7 @@ export default function BlogCard({ title, description, date, imageUrl, href }: B
             <Card className="overflow-hidden flex h-full w-auto box-content rounded-[24px]" >
                 {/* 图片和文字上下排列 */}
                 <div className="flex flex-col h-full w-full ">
-                    <div className="relative h-full bg-emerald-800 w-full rounded-b-[24px]">
+                    <div className="relative h-full bg-[#F8F1F6] w-full rounded-b-[24px]">
                         <Image src={imageUrl || "/placeholder.svg"} alt="" fill className="object-cover " priority />
                     </div>
                     <CardContent className="p-6 grid relative self-start min-w-[calc(100%-48px)]  gap-2 ">
