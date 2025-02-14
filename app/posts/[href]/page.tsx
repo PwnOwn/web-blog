@@ -132,7 +132,7 @@ export default function PostPage() {
 
       <div className="md:max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid lg:grid-cols-[1fr,300px] gap-12">
-          <main className="w-full">
+          <main className=" mx-auto break-words">
             <div className="mb-8 border-b pb-6">
               <div className="text-sm text-gray-600 mb-4">Posted by</div>
               <div className="flex items-center gap-3">
@@ -159,7 +159,7 @@ export default function PostPage() {
                 return (
                   <section key={section.id} id={id}>
 
-                    <div className="relative group flex items-center">
+                    <div className="group flex items-center">
                       <div
                         className={`absolute left-[-65px] flex items-center justify-center w-12 h-12 transition-opacity duration-200 ease-in-out rounded-full opacity-0 group-hover:opacity-100 z-2 font-google-sans text-base cursor-pointer overflow-hidden hover:bg-[#F0ECF2] active:bg-[#F1D3F9]`}
                         onClick={handleCopyLink}
@@ -202,7 +202,7 @@ export default function PostPage() {
             )}
           </main>
 
-          <aside className="lg:sticky lg:top-8 top-8 h-fit sm:top-0  w-[156px] mt-[112px] mx-6">
+          <aside className="lg:sticky lg:top-8 top-8 h-fit sm:top-0  w-[156px] mt-[112px] mx-6 break-words">
             <BlogPageSidebar title={post.title} subsections={post.content.map((section) => section.title)} />
           </aside>
         </div>
