@@ -68,48 +68,48 @@ export default function Home() {
       </div>
 
       <div className="p-2 max-w-7xl mx-auto">
-  <div className="my-24 mx-auto">
-    <h2 className="font-google-sans text-[57px] mb:text-[24px] mx-auto md:ml-[20px] text-center md:text-left">
-      News &amp; Launches
-    </h2>
+        <div className="my-24 mx-auto">
+          <h2 className="font-google-sans text-[57px] mb:text-[24px] mx-auto md:ml-[20px] text-center md:text-left">
+            News &amp; Launches
+          </h2>
 
-    <div className="grid grid-cols-1 max-md:grid-cols-2 md:grid-cols-3 gap-[8px] mb-3 w-full mx-auto md:ml-0 md:mr-0">
-      {/* Map through the latest 3 blog posts and render them */}
-      {posts.slice(0, 3).map((post) => (
-        <article key={post.id} className="rounded-[24px] overflow-hidden h-[350px] w-full">
-          <div className="gap-6 h-full w-full">
-            <BlogCard
-              title={post.title}
-              description={post.description || "Default description"}
-              date={''}
-              imageUrl={post.imageURL || "/bg.jpg"}
-              href={post.href || "#"}
-            />
+          <div className="grid grid-cols-1 gap-[8px] mb-3 w-full mx-auto md:grid-cols-2 lg:grid-cols-3 max-md:grid-cols-2">
+            {/* Map through the latest 3 blog posts and render them */}
+            {posts.slice(0, 3).map((post) => (
+              <article key={post.id} className="rounded-[24px] overflow-hidden h-[350px] w-full">
+                <div className="gap-6 h-full w-full">
+                  <BlogCard
+                    title={post.title}
+                    description={post.description || "Default description"}
+                    date={''}
+                    imageUrl={post.imageURL || "/bg.jpg"}
+                    href={post.href || "#"}
+                  />
+                </div>
+              </article>
+            ))}
           </div>
-        </article>
-      ))}
-    </div>
 
-    <div className="p-2 mx-auto">
-      <h2 className="font-google-sans text-[40px] md:text-[57px] mb-12 md:mb-24 mx-auto font-bold text-center md:text-left">
-        Resources
-      </h2>
-      <div className="grid grid-cols-1 max-md:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
-        {/* Added max-w for responsiveness */}
-        {resources.map((resource, index) => (
-          <a
-            key={index}
-            href={resource.link}
-            className="bg-[--mio-theme-color-surface-1] dark:bg-[#1C1B1D] dark:hover:bg-[#45455A] p-6 rounded-[24px] hover:bg-[--there-hover-coloer] transition duration-300 ease-in-out"
-          >
-            <h3 className="text-xl font-semibold mb-2 font-google-sans">{resource.title}</h3>
-            <p className="font-google-sans">{resource.description}</p>
-          </a>
-        ))}
+          <div className="p-2 mx-auto">
+            <h2 className="font-google-sans text-[40px] md:text-[57px] mb-12 md:mb-24 mx-auto font-bold text-center md:text-left">
+              Resources
+            </h2>
+            <div className="grid grid-cols-1 max-md:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
+              {/* Added max-w for responsiveness */}
+              {resources.map((resource, index) => (
+                <a
+                  key={index}
+                  href={resource.link}
+                  className="bg-[--mio-theme-color-surface-1] dark:bg-[#1C1B1D] dark:hover:bg-[#45455A] p-6 rounded-[24px] hover:bg-[--there-hover-coloer] transition duration-300 ease-in-out"
+                >
+                  <h3 className="text-xl font-semibold mb-2 font-google-sans">{resource.title}</h3>
+                  <p className="font-google-sans">{resource.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
 
 
