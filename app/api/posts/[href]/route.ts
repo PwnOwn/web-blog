@@ -1,15 +1,6 @@
 import { NextResponse } from 'next/server';
-import { Pool } from 'pg';
-
-// 创建一个 PostgreSQL 连接池
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgres://neondb_owner:npg_hsN4QCwAIa5V@ep-lively-field-a1bbnr6b-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require'
-});
-
-// 监听连接池错误
-pool.on('error', (err) => {
-  console.error('Unexpected error on idle client', err);
-});
+import fs from 'fs';
+import path from 'path';
 
 // 定义 Post 接口
 interface Post {
@@ -22,16 +13,19 @@ interface Post {
   href: string;
 }
 
-// 从数据库中获取指定 href 的帖子
-async function getPostFromDatabaseByHref(href: string): Promise<Post | null> {
+// 从文件中读取指定 href 的帖子
+async function getPostFromFileByHref(href: string): Promise<Post | null> {
   try {
-    const result = await pool.query(
-      'SELECT id, title, description, date, imageURL, year, href FROM posts WHERE href = $1;',
-      [href]
-    );
-    return result.rows.length > 0 ? result.rows[0] : null;
+    // 文件路径，确保数据文件在正确的目录
+    const filePath = path.join(process.cwd(), 'app', 'data.json');
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const posts: Post[] = JSON.parse(fileContent);
+
+    // 根据 href 查找帖子
+    const post = posts.find(p => p.href === href);
+    return post || null;
   } catch (error) {
-    console.error('Error fetching post:', error);
+    console.error('Error reading posts file:', error);
     return null;
   }
 }
@@ -43,7 +37,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     const url = new URL(request.url);
     const href = url.pathname.split('/').pop() || '';
 
-    const post = await getPostFromDatabaseByHref(href);
+    const post = await getPostFromFileByHref(href);
 
     if (post) {
       return NextResponse.json({ post }, { status: 200 });

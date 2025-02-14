@@ -91,16 +91,16 @@ export default function BlogPage() {
     });
   };
   return (
-    <div className="dark:text-white">
+    <div className="dark:text-white ">
       <MaterialDesignHero
         videoUrl="https://kstatic.googleusercontent.com/files/65da8f0326427a8e71bfa678348f3fa1a4bb1660e0b013591eb3bfd9df455bd5a3334249de61229029be7d2fd7cf18d4e143728b7e0702b6bde6251a9c64511a"
         date="Dec 16, 2020"
         title="The State of Design Systems: 2020"
         description="A community survey of design systems, from creation to implementation and beyond"
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div className="md:max-w-7xl mx-auto px-4 sm:px-6 py-12 ">
         <div className="grid lg:grid-cols-[1fr,300px] gap-12">
-          <main className="m-auto">
+          <main className="">
             <h1 className="text-5xl font-bold mb-16">All blog posts</h1>
 
             {years.map((year) => (
@@ -115,17 +115,20 @@ export default function BlogPage() {
                 {blogPosts.filter((post) => post.year === year).length === 0 ? (
                   <p>No blog posts for this year.</p>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[8px] mb-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-[8px] mb-3 h-full w-full">
                     {blogPosts
                       .filter((post) => post.year === year)
                       .map((post) => (
-                        <article key={post.id} className="grid gap-6 rounded-lg overflow-hidden h-[510px]">
+                        <article key={post.id} className="grid gap-6 rounded-lg overflow-hidden h-full w-full">
                           <BlogCard
                             title={post.title}
                             description={post.description || "Default description"}
                             date={formatDate(post.date) || "Sep 10, 2024"}
                             imageUrl={post.imageURL || "/pic.jpg"}
                             href={post.href || "#"}
+                            imgHeight="250px" // Custom image height
+                            contentHeight="200px" // Custom content height
+                            boxw="100%" // 自定义宽度
                           />
                         </article>
                       ))}

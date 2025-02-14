@@ -84,6 +84,8 @@ export default function Home() {
                     date={''}
                     imageUrl={post.imageURL || "/bg.jpg"}
                     href={post.href || "#"}
+                    imgHeight="180px" // Custom image height
+                    contentHeight="200px" // Custom content height
                   />
                 </div>
               </article>

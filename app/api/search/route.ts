@@ -1,39 +1,52 @@
 import { NextResponse } from 'next/server';
-import { Pool } from 'pg';
+import fs from 'fs';
+import path from 'path';
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgres://neondb_owner:npg_hsN4QCwAIa5V@ep-lively-field-a1bbnr6b-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require'
-});
+// 定义 Post 接口
+interface Post {
+    id: number;
+    title: string;
+    description: string;
+    date: string;
+    imageURL: string;
+    year: number;
+    href: string;
+  }
 
-async function getPostsFromDatabase(query: string) {  // Add type annotation
-    try {
-        const result = await pool.query(
-            'SELECT id, title, href FROM posts WHERE LOWER(title) LIKE LOWER($1)', // 根据文章标题进行模糊搜索
-            [`%${query}%`]  // 使用 query 来进行匹配
-        );
-        return result.rows;
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        return [];
-    }
+// 从 app/data.json 文件中读取数据
+async function getPostsFromFile(query: string): Promise<Post[]> {
+  try {
+    const filePath = path.join(process.cwd(), 'app', 'data.json'); // 确保 data.json 存放在 app 文件夹中
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const posts: Post[] = JSON.parse(fileContent); // 解析 JSON 数据
+
+    // 根据标题进行模糊匹配
+    return posts.filter((post: Post) =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+  } catch (error) {
+    console.error('Error fetching posts from file:', error);
+    return [];
+  }
 }
 
-export async function GET(request: Request) {  // Add type annotation
-    const { searchParams } = new URL(request.url);
-    const query = searchParams.get('q') || '';
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const query = searchParams.get('q') || '';
 
-    if (!query) {
-        return NextResponse.json({ results: [] }, { status: 200 });
-    }
+  if (!query) {
+    return NextResponse.json({ results: [] }, { status: 200 });
+  }
 
-    try {
-        const filteredPosts = await getPostsFromDatabase(query);
-        return NextResponse.json({ results: filteredPosts }, { status: 200 });
-    } catch (error) {
-        console.error("Error in API route:", error);
-        return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
-    }
+  try {
+    const filteredPosts = await getPostsFromFile(query);
+    return NextResponse.json({ results: filteredPosts }, { status: 200 });
+  } catch (error) {
+    console.error("Error in API route:", error);
+    return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 });
+  }
 }
+
 
 const posts = [
     { id: 1, title: 'Accessibility', Route: '/Accessibility' },
