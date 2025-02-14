@@ -35,7 +35,7 @@ export default function RootLayout({
               {/* 跳过链接，设置 focus 时可见 */}
       <Link
           href="#main-content"
-          className="absolute top-[-40px] left-0 px-4 py-2 bg-black text-white font-bold focus:top-0 focus:z-10 focus:block focus:outline-none focus:focus:ring-2 focus:focus:ring-blue-500"
+          className="fixed w-px h-px whitespace-nowrap overflow-hidden clip-path-none font-google-sans text-base font-medium tracking-normal leading-6 p-px rounded-sm text-primary underline bg-[#F1D3F9]"
           aria-label="Skip to main content"
         >
           Skip to main content

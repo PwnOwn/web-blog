@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import BlogPageSidebar from "@/app/components/BlogPageSidebar"
 import MaterialDesignHero from "@/app/components/pagehader"
@@ -38,7 +38,44 @@ export default function PostPage() {
   const [post, setPost] = useState<Post | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [href, setHref] = useState<string | null>(null)
-  const [copiedSection, setCopiedSection] = useState<string | null>(null)
+
+  const [copyStatus, setCopyStatus] = useState("Copy link");
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+
+  // 处理复制链接的点击事件
+  const handleCopyLink = () => {
+    const url = window.location.href.split("#")[0];
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        setCopyStatus("Link copied");
+        // 点击后直接显示 tooltip
+        if (tooltipRef.current) {
+          tooltipRef.current.classList.add("opacity-100");
+        }
+        setTimeout(() => {
+          setCopyStatus("Copy link");
+          if (tooltipRef.current) {
+            tooltipRef.current.classList.remove("opacity-100");
+          }
+        }, 0); // 两秒后恢复初始状态
+      })
+      .catch((err) => {
+        console.error("复制失败", err);
+        setCopyStatus("Copy failed!"); // 复制失败时的状态
+        if (tooltipRef.current) {
+          tooltipRef.current.classList.add("opacity-100");
+        }
+        setTimeout(() => {
+          setCopyStatus("Copy link");
+          if (tooltipRef.current) {
+            tooltipRef.current.classList.remove("opacity-100");
+          }
+        }, 200); // 失败时短时间显示错误提示
+      });
+  };
+
+
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -59,6 +96,7 @@ export default function PostPage() {
         }
         const data = await res.json()
         setPost(data.post)
+        console.log("Fetched post data:", data.post) // 调试输出
       } catch (error) {
         console.error("Error fetching post:", error)
       } finally {
@@ -81,16 +119,7 @@ export default function PostPage() {
   if (!post) {
     return null
   }
-  const handleCopyLink = async (sectionId: string) => {
-    const url = `${window.location.href.split("#")[0]}#${sectionId}`
-    try {
-      await navigator.clipboard.writeText(url)
-      setCopiedSection(sectionId)
-      setTimeout(() => setCopiedSection(null), 2000) // Reset after 2 seconds
-    } catch (err) {
-      console.error("Failed to copy link", err)
-    }
-  }
+
   return (
     <div className="post-detail">
       <MaterialDesignHero
@@ -124,42 +153,60 @@ export default function PostPage() {
             <p className="text-lg">{post.description}</p>
 
             {post.content && post.content.length > 0 ? (
-              post.content.map((section) => (
-                <section key={section.id} id={section.id}>
-                  <h2 className="text-3xl font-bold mt-8">{section.title}</h2>
-                  <p className="mt-4">{section.content}</p>
-                  {section.imageUrl && (
-                    <Image
-                      src={section.imageUrl}
-                      alt={section.title}
-                      width={800}
-                      height={400}
-                      className="mt-4 rounded-lg"
-                    />
-                  )}
-                  {section.links && section.links.length > 0 && (
-                    <div className="mt-4">
-                      {section.links.map((link, index) => (
-                        <a key={index} href={link.url} className="text-blue-600 hover:underline block">
-                          {link.text}
-                        </a>
-                      ))}
+              post.content.map((section) => {
+                const id = section.title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+
+                return (
+                  <section key={section.id} id={id}>
+
+                    <div className="relative group flex items-center">
+                      <div
+                        className={`absolute left-[-65px] flex items-center justify-center w-12 h-12 transition-opacity duration-200 ease-in-out rounded-full opacity-0 group-hover:opacity-100 z-2 font-google-sans text-base cursor-pointer overflow-hidden hover:bg-[#F0ECF2] active:bg-[#F1D3F9]`}
+                        onClick={handleCopyLink}
+                      >
+                        <span className="material-symbols-outlined">link</span>
+
+                      </div>
+                      <h2 className="text-3xl font-bold py-8 font-google-sans text-[57px]">
+                        {section.title}
+                      </h2>
                     </div>
-                  )}
-                </section>
-              ))
+
+
+
+
+                    <p className="mt-4">{section.content}</p>
+                    {section.imageUrl && (
+                      <Image
+                        src={section.imageUrl}
+                        alt={section.title}
+                        width={800}
+                        height={400}
+                        className="mt-4 rounded-lg"
+                      />
+                    )}
+                    {section.links && section.links.length > 0 && (
+                      <div className="mt-4">
+                        {section.links.map((link, index) => (
+                          <a key={index} href={link.url} className="text-blue-600 hover:underline block">
+                            {link.text}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                );
+              })
             ) : (
               <p>No content available.</p>
             )}
           </main>
 
-          <aside className="lg:sticky lg:top-8 top-8 h-fit sm:top-0">
+          <aside className="lg:sticky lg:top-8 top-8 h-fit sm:top-0  w-[156px] mt-[112px] mx-6">
             <BlogPageSidebar title={post.title} subsections={post.content.map((section) => section.title)} />
-              
           </aside>
         </div>
       </div>
     </div>
   )
 }
-

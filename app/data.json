@@ -1,10 +1,10 @@
 [
     {
         "id": 1,
-        "title": "My First Post",
+        "title": "Material Design at Google I/O ‘24",
         "description": "This is the description of my first post.",
         "date": "2025-02-14",
-        "imageURL": "/404.png",
+        "imageURL": "/bg.jpg",
         "year": 2025,
         "href": "first-post",
         "author": {
@@ -23,7 +23,7 @@
                 "id": "material-design",
                 "title": "Material Design for XR",
                 "content": "Information about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
-                "imageUrl": "/images/material-design.jpg"
+                "imageUrl": ""
             },
             {
                 "id": "xr-adaptations",
