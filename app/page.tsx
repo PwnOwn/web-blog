@@ -73,7 +73,7 @@ export default function Home() {
       News &amp; Launches
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-[8px] mb-3 w-full mx-auto md:ml-0 md:mr-0">
+    <div className="grid grid-cols-1 max-md:grid-cols-2 md:grid-cols-3 gap-[8px] mb-3 w-full mx-auto md:ml-0 md:mr-0">
       {/* Map through the latest 3 blog posts and render them */}
       {posts.slice(0, 3).map((post) => (
         <article key={post.id} className="rounded-[24px] overflow-hidden h-[350px] w-full">
@@ -94,7 +94,7 @@ export default function Home() {
       <h2 className="font-google-sans text-[40px] md:text-[57px] mb-12 md:mb-24 mx-auto font-bold text-center md:text-left">
         Resources
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
+      <div className="grid grid-cols-1 max-md:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
         {/* Added max-w for responsiveness */}
         {resources.map((resource, index) => (
           <a
@@ -110,6 +110,9 @@ export default function Home() {
     </div>
   </div>
 </div>
+
+
+
 
     </main>
 

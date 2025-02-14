@@ -12,6 +12,10 @@ export default {
       fontFamily: {
         'google-sans': ['"Google Sans"', 'sans-serif'],
       },
+      screens: {
+
+        'max-md': { 'max': '1314px' }, // 新增的自定义断点
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

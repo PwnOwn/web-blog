@@ -64,7 +64,7 @@ const TextBlock: React.FC<TextBlockProps> = ({ date, title, description, titleSi
           {date}
         </div>
         <div className="title">
-        <h1 className={`${titleSize} font-bold mb-2 font-google-sans`}>
+          <h1 className={`${titleSize} font-bold mb-2 font-google-sans`}>
             {title}
           </h1>
           <div className="description text-[12px] md:text-[16px] font-google-sans">
@@ -81,17 +81,18 @@ interface MaterialDesignHeroProps {
   date: string;
   title: string;
   description: string;
-  titleSize?: string; 
+  titleSize?: string;
 }
 
 const MaterialDesignHero: React.FC<MaterialDesignHeroProps> = ({ videoUrl, date, title, description, titleSize }) => {
   return (
     <header className="w-full max-w-full min-h-[544px] mx-auto pl-[8px] sm:pl-[4px] pr-[8px] md:min-h-[300px]">
-      <div className="grid gap-2 grid-cols-1 grid-rows-2 sm:ml-4 sm:mr-4 md:grid-cols-2 md:grid-rows-1 md:ml-6 md:mr-6 grid-flow-row mt-[8px]">
-        <TextBlock date={date} title={title} description={description}  titleSize={titleSize}/>
+      <div className="grid gap-2 grid-cols-1 grid-rows-2 sm:ml-4 sm:mr-4 md:grid-cols-2 md:grid-rows-1 md:ml-6 md:mr-6 max-md:ml-2 max-md:mr-2 max-md:grid-cols-1 grid-flow-row mt-[8px]">
+        <TextBlock date={date} title={title} description={description} titleSize={titleSize} />
         <VideoPlayer videoUrl={videoUrl} />
       </div>
     </header>
+
   );
 };
 
