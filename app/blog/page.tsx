@@ -94,9 +94,10 @@ export default function BlogPage() {
     <div className="dark:text-white ">
       <MaterialDesignHero
         videoUrl="https://kstatic.googleusercontent.com/files/65da8f0326427a8e71bfa678348f3fa1a4bb1660e0b013591eb3bfd9df455bd5a3334249de61229029be7d2fd7cf18d4e143728b7e0702b6bde6251a9c64511a"
-        date="Dec 16, 2020"
-        title="The State of Design Systems: 2020"
-        description="A community survey of design systems, from creation to implementation and beyond"
+        date=""
+        title="My Blog"
+        description="Read the latest and greatest about Material Design"
+        titleSize = "text-[48px] md:text-[64px]"
       />
       <div className="md:max-w-7xl mx-auto px-4 sm:px-6 py-12 ">
         <div className="grid lg:grid-cols-[1fr,300px] gap-12">
@@ -158,8 +159,8 @@ export default function BlogPage() {
                       href={`#${year}`}
                       className={`block px-3 py-2 rounded-[24px] text-sm w-[150px] ${
                         activeYear === year
-                          ? "border border-[#9A979B] text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads"
-                          : "text-[#736A7A] font-google-sans hover:bg-[#ECE9EE]"
+                          ? "border border-[#9A979B] text-[#21182b] font-bold font-google-sans hover:bg-[#ECE9EE] font-variation-grads dark:text-white"
+                          : "text-[#736A7A] font-google-sans hover:bg-[#ECE9EE] dark:text-white"
                       }`}
                     >
                       {year}

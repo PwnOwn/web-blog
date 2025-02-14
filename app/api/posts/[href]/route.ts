@@ -11,6 +11,7 @@ interface Post {
   imageURL: string;
   year: number;
   href: string;
+  subsections: string[]; // List of subsections (small titles)
 }
 
 // 从文件中读取指定 href 的帖子

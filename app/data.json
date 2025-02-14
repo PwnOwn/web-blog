@@ -1,48 +1,47 @@
 [
     {
-      "id": 1,
-      "title": "My First Post",
-      "description": "This is the description of my first post.",
-      "date": "2025-02-14",
-      "imageURL": "/404.png",
-      "year": 2025,
-      "href": "first-post"
-    },
-    {
-      "id": 2,
-      "title": "Another Post",
-      "description": "This is the description of another post.",
-      "date": "2025-02-13",
-      "imageURL": "/bg.jpg",
-      "year": 2024,
-      "href": "another-post"
-    },
-    {
-        "id": 3,
-        "title": "Another Post",
-        "description": "This is the description of another post.",
-        "date": "2025-02-13",
-        "imageURL": "/bg.jpg",
-        "year": 2024,
-        "href": "another-post"
-      },
-      {
-        "id": 5,
-        "title": "Another Post",
-        "description": "This is the description of another post.",
-        "date": "2025-02-13",
-        "imageURL": "/bg.jpg",
-        "year": 2024,
-        "href": "another-post"
-      },
-      {
-        "id": 4,
-        "title": "Another Post",
-        "description": "This is the description of another post.",
-        "date": "2025-02-13",
-        "imageURL": "/bg.jpg",
+        "id": 1,
+        "title": "My First Post",
+        "description": "This is the description of my first post.",
+        "date": "2025-02-14",
+        "imageURL": "/404.png",
         "year": 2025,
-        "href": "another-post"
-      }
-  ]
-  
+        "href": "first-post",
+        "author": {
+            "name": "John Doe",
+            "title": "Senior Product Manager",
+            "avatar": "/avatars.jpg"
+        },
+        "content": [
+            {
+                "id": "android-apps",
+                "title": "Android apps in XR",
+                "content": "Information about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssDetailed content about Android apps in XR...",
+                "imageUrl": ""
+            },
+            {
+                "id": "material-design",
+                "title": "Material Design for XR",
+                "content": "Information about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+                "imageUrl": "/images/material-design.jpg"
+            },
+            {
+                "id": "xr-adaptations",
+                "title": "XR adaptations",
+                "content": "Information about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssInformation about Material Design principles in XR...ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssDetails about XR adaptations...",
+                "links": [
+                    {
+                        "text": "Learn more about XR",
+                        "url": "/xr-learn-more"
+                    }
+                ]
+            }
+        ],
+        "subsections": [ 
+            "Android apps in XR", 
+            "Material Design for XR",
+             "XR adaptations" ],
+        "tags": ["XR", "Android", "Material Design"],
+        "readTime": "5 min"
+    }
+]

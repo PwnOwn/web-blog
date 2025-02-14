@@ -78,7 +78,7 @@ export default function SearchPage() {
               aria-label={result.title}
             >
               <span className="flex items-center group-hover:bg-[#DED8DC] dark:group-hover:bg-[#363336] px-2 py-1 rounded-full transition-all h-[50px] max-w-fit whitespace-nowrap">
-                <span className="text-[24px] text-[#1C1B1F] font-normal ml-2 dark:text-white">{result.title}</span>
+                <span className="text-[24px] text-[#1C1B1F] font-normal font- ml-2 dark:text-white">{result.title}</span>
                 <span className="text-[#1C1B1F] opacity-0 group-hover:opacity-100 transition-opacity ml-2 hover:bg-[#D3CBD0] rounded-full p-2 dark:hover:bg-[#403E40]">
                   <MdArrowOutward size={24} className="text-[#1C1B1F] dark:text-white" />
                 </span>
