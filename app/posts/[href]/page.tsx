@@ -132,7 +132,7 @@ export default function PostPage() {
 
       <div className="md:max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid lg:grid-cols-[1fr,300px] gap-12">
-          <main className=" mx-auto break-words">
+          <main className="w-full break-words">
             <div className="mb-8 border-b pb-6">
               <div className="text-sm text-gray-600 mb-4">Posted by</div>
               <div className="flex items-center gap-3">
