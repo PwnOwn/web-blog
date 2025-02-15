@@ -69,7 +69,7 @@ export default function Home() {
 
       <div className="p-2 max-w-7xl mx-auto">
         <div className="my-24 mx-auto">
-          <h2 className="font-google-sans text-[57px] mb:text-[24px] mx-auto md:ml-[20px] text-center md:text-left">
+          <h2 className="font-google-sans text-[57px] mb:text-[24px] mx-auto  text-center md:text-left">
             News &amp; Launches
           </h2>
 
@@ -96,7 +96,7 @@ export default function Home() {
             <h2 className="font-google-sans text-[40px] md:text-[57px] mb-12 md:mb-24 mx-auto font-bold text-center md:text-left">
               Resources
             </h2>
-            <div className="grid grid-cols-1 max-md:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
+            <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 gap-2 mx-auto w-full max-w-[1450px] md:ml-0 md:mr-0">
               {/* Added max-w for responsiveness */}
               {resources.map((resource, index) => (
                 <a
