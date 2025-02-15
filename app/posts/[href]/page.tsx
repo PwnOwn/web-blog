@@ -159,7 +159,7 @@ export default function PostPage() {
                 return (
                   <section key={section.id} id={id}>
 
-                    <div className="group flex items-center">
+                    <div className="relative group flex items-center">
                       <div
                         className={`absolute left-[-65px] flex items-center justify-center w-12 h-12 transition-opacity duration-200 ease-in-out rounded-full opacity-0 group-hover:opacity-100 z-2 font-google-sans text-base cursor-pointer overflow-hidden hover:bg-[#F0ECF2] active:bg-[#F1D3F9]`}
                         onClick={handleCopyLink}
