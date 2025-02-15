@@ -27,13 +27,8 @@ export default function GetStarted() {
 
 
       {/* Main content */}
-      <div className="container mx-auto px-4 py-[150px] getbg">
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mb-6 w-full">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="w-3 h-3 bg-gray-600 rounded-full" />
-          ))}
-        </div>
+      <div className="container mx-auto px-4 pt-[150px] pb-[10px] getbg">
+           {/* Dots - Adjusted positioning */}
 
         {/* Header */}
         <div className="text-center mb-16">
